@@ -4,6 +4,6 @@ public class Duck extends Animal implements IFlying{
         System.out.println("Кря");
     }
     public void fly(){
-        System.out.println("Я летаю");
+        System.out.println("Я летаю!");
     }
 }
