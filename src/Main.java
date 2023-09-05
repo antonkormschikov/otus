@@ -29,7 +29,7 @@ String color=null;
             System.out.println("Введите команду add/list/exit");
 
 
-            switch (scanner.nextLine().toUpperCase().trim()){
+            switch (scanner.nextLine().toString().toUpperCase().trim()){
 
                 case "ADD":
                     System.out.println("Какое живоное добавить? (CAT, DOG,DUCK)");
