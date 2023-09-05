@@ -1,10 +1,16 @@
+package animals;
+
 public class Animal {
     String name;
     int age;
-    int weight;
+    double weight;
     String color;
 
-    public Animal(String name, int age, int weight, String color) {
+    public Animal(String name, int age, double weight, String color) {
+        this.name=name;
+        this.age=age;
+        this.weight=weight;
+        this.color=color;
     }
 
     public Animal() {
@@ -18,7 +24,7 @@ public class Animal {
         return age;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
@@ -34,33 +40,33 @@ public class Animal {
         this.age = age;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
     public void setColor(String color) {
         this.color = color;
     }
-    public void Say(){
+    public void say(){
         System.out.println("Я говорю");
     }
-    public void Go(){
+    public void go(){
         System.out.println("Я иду");
     }
-    public void Drink(){
+    public void drink(){
         System.out.println("Я пью");
     }
-    public void Eat(){
+    public void eat(){
         System.out.println("Я ем");
     }
 
 
-    @Override
-    public String toString() {
-        return "Привет! Меня зовут " +name+
+
+    public void toString(String name,int age, double weight,String color) {
+        System.out.println("Привет! Меня зовут " +name+
                  ", мне " + age +" лет(/год/года), "+
                 "я вешу " + weight + "кг, " +
-                "мой цвет - " + color;
+                "мой цвет - " + color);
     }
 }
 
