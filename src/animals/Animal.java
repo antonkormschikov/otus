@@ -1,10 +1,10 @@
 package animals;
 
-public class Animal {
-    String name;
-    int age;
-    double weight;
-    String color;
+public abstract class Animal {
+    private String name;
+    private int age;
+    private double weight;
+    private String color;
 
     public Animal(String name, int age, double weight, String color) {
         this.name=name;
@@ -60,13 +60,20 @@ public class Animal {
         System.out.println("Я ем");
     }
 
+public String getYearP(){
+       int age=this.age % 10;
+       if (this.age>=11 && this.age<=19){
+           return "лет";
+       }
+       if (age==1){return "год";}
+       else if (age>=5 || age==0) {return "лет";}
+       else {return "года";}
+}
 
+    public String toString(String name,int age, double weight,String color) {
 
-    public void toString(String name,int age, double weight,String color) {
-        System.out.println("Привет! Меня зовут " +name+
-                 ", мне " + age +" лет(/год/года), "+
-                "я вешу " + weight + "кг, " +
-                "мой цвет - " + color);
+        return String.format("Привет! Меня зовут %s, мне %i %s, я вешу %d кг, мой цвет - %s", name, age, getYearP(), weight, color);
+
     }
 }
 
