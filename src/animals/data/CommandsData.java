@@ -1,8 +1,7 @@
 package animals.data;
 
-public enum Command {
+public enum CommandsData {
     EXIT,
     ADD,
     LIST;
-
 }

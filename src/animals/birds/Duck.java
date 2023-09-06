@@ -6,8 +6,7 @@ public class Duck extends Animal implements IFlying {
         super(name, age, weight, color);
     }
 
-    public Duck() {
-    }
+
 
     @Override
     public void say(){
