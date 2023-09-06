@@ -38,7 +38,7 @@ public class Main {
             for (CommandsData commandsData: CommandsData.values()){
                 if (commandsData.name().equals(comIn)){
                     isCommandExist=true;
-                    break;
+                    break ;
                 }
             }
             if (!isCommandExist){
