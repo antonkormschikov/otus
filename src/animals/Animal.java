@@ -60,19 +60,19 @@ public abstract class Animal {
         System.out.println("Я ем");
     }
 
-public String getYearP(){
-       int age=this.age % 10;
+public String getYearP(int age){
+       int a=this.age % 10;
        if (this.age>=11 && this.age<=19){
            return "лет";
        }
-       if (age==1){return "год";}
+       if (age==1||a==1){return "год";}
        else if (age>=5 || age==0) {return "лет";}
        else {return "года";}
 }
 
-    public String toString(String name,int age, double weight,String color) {
+    public String toString(String name, int age, double weight, String color) {
 
-        return String.format("Привет! Меня зовут %s, мне %i %s, я вешу %d кг, мой цвет - %s", name, age, getYearP(), weight, color);
+       return String.format("Привет! Меня зовут %s, мне %s %s, я вешу %s кг, мой цвет - %s", name, age, getYearP(age), weight, color);
 
     }
 }

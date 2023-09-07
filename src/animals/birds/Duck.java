@@ -15,4 +15,6 @@ public class Duck extends Animal implements IFlying {
     public void fly(){
         System.out.println("Я летаю!");
     }
+
+
 }
