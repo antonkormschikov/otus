@@ -60,6 +60,10 @@ public abstract class Animal {
         System.out.println("Я ем");
     }
 
+/*public String getValidAge(int age){
+        if (age<0)
+}*/
+
 public String getYearP(int age){
        int a=this.age % 10;
        if (this.age>=11 && this.age<=19){

@@ -1,22 +1,11 @@
 import animals.*;
-
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
-
-
-import animals.birds.Duck;
 import animals.data.AnimalData;
 import animals.data.CommandsData;
-import animals.pets.Cat;
-import animals.pets.Dog;
-
-import javax.swing.*;
 
 public class Main {
-
     public static void main(String[] args) {
 
       String line=null;
@@ -27,9 +16,6 @@ public class Main {
             int age=-1;
             double weight=-1;
             String color="";
-
-      //Animal animal = new Factory(name, age, weigth, color);
-
 
         while (true){
             System.out.println("Введите команду add/list/exit");
@@ -51,111 +37,27 @@ public class Main {
 
             switch (commandsData){
                 case ADD:{
-                    System.out.println("Какое живоное добавить? (CAT, DOG,DUCK)");
-                    line=scanner.nextLine().toUpperCase().trim();
-                 /*   AnimalData date = AnimalData.valueOf(type);
-                   animals.add(new Factory(name, age, weight, color).create(date).say());*/
 
-                   if (line.equals("DOG")) {
-                        System.out.println("Введите имя?");
-                       while(!scanner.hasNext("[a-zA-Z]*$")) {
-                           System.out.println("Вводите только буквы!");
-                           scanner.next();
-                           }
-                       name = scanner.next();
+                        System.out.println("Какое живоное добавить? (CAT, DOG,DUCK)");
+                        line = scanner.nextLine().toUpperCase().trim();
 
-                       System.out.println("Введите возраст?");
-                       while (!scanner.hasNextInt()) {
-                           System.out.println("Вводите только целое число!");
-                           scanner.next();
-                       }
-                       age = scanner.nextInt();
-
-                        System.out.println("Введите вес?");
-                       while (!scanner.hasNextDouble()) {
-                           System.out.println("Вводите только целое число!");
-                           scanner.next();
-                       }
-                       weight = scanner.nextDouble();
-
-                        System.out.println("Введите цвет?");
-                        while(!scanner.hasNext("[a-zA-Z]*$")) {
-                            System.out.println("Вводите только буквы!");
-                            scanner.next();
+                        boolean isAnimalExists = false;
+                        for (AnimalData animalData : AnimalData.values()) {
+                            if (animalData.name().equals(line)) {
+                                isAnimalExists = true;
+                                break;
+                            }
                         }
-                       color = scanner.next();
-                        Animal a =new Dog(name, age, weight, color);
+                        if (!isAnimalExists) {
+                            System.out.printf("Неверный тип живоного %s", line);
+                            System.out.println("");
+                            continue;
+                        }
+
+                        AnimalData data = AnimalData.valueOf(line);
+                        Animal a = new Factory(name, age, weight, color).create(data);
                         animals.add(a);
                         a.say();
-        ////////////////////////////////////////////
-                    } else if (line.equals("CAT")) {
-                       System.out.println("Введите имя?");
-                       while(!scanner.hasNext("[a-zA-Z]*$")) {
-                           System.out.println("Вводите только буквы!");
-                           scanner.next();
-                       }
-                       name = scanner.next();
-
-                       System.out.println("Введите возраст?");
-                       while (!scanner.hasNextInt()) {
-                           System.out.println("Вводите только целое число!");
-                           scanner.next();
-                       }
-                       age = scanner.nextInt();
-
-                       System.out.println("Введите вес?");
-                       while (!scanner.hasNextDouble()) {
-                           System.out.println("Вводите только целое число!");
-                           scanner.next();
-                       }
-                       weight = scanner.nextDouble();
-
-                       System.out.println("Введите цвет?");
-                       while(!scanner.hasNext("[a-zA-Z]*$")) {
-                           System.out.println("Вводите только буквы!");
-                           scanner.next();
-                       }
-                       color = scanner.next();
-                       Animal a =new Cat(name, age, weight, color);
-                       animals.add(a);
-                       a.say();
-                        /////////////////////////////////////////////
-                    } else if (line.equals("DUCK")) {
-                       System.out.println("Введите имя?");
-                       while(!scanner.hasNext("[a-zA-Z]*$")) {
-                           System.out.println("Вводите только буквы!");
-                           scanner.next();
-                       }
-                       name = scanner.next();
-
-                       System.out.println("Введите возраст?");
-                       while (!scanner.hasNextInt()) {
-                           System.out.println("Вводите только целое число!");
-                           scanner.next();
-                       }
-                       age = scanner.nextInt();
-
-                       System.out.println("Введите вес?");
-                       while (!scanner.hasNextDouble()) {
-                           System.out.println("Вводите только число!");
-                           scanner.next();
-                       }
-                       weight = scanner.nextDouble();
-
-                       System.out.println("Введите цвет?");
-                       while(!scanner.hasNext("[a-zA-Z]*$")) {
-                           System.out.println("Вводите только буквы!");
-                           scanner.next();
-                       }
-                       color = scanner.next();
-                       Animal a =new Duck(name, age, weight, color);
-                       animals.add(a);
-                       a.say();
-
-                   }
-                           else {
-                        System.out.println("Неверный тип животного");
-                    }
 
                     break;
                 }
