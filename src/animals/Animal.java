@@ -76,7 +76,7 @@ public String getYearP(int age){
 
     public String toString(String name, int age, double weight, String color) {
 
-       return String.format("Привет! Меня зовут %s, мне %s %s, я вешу %s кг, мой цвет - %s", name, age, getYearP(age), weight, color);
+       return String.format("Привет! Меня зовут %s, мне %d %s, я вешу %s кг, мой цвет - %s", name, age, getYearP(age), weight, color);
 
     }
 }

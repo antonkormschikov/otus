@@ -28,7 +28,6 @@ public class Factory {
 
 
         Scanner scanner = new Scanner(System.in);
-        int i=0;
         System.out.println("Введите имя?");
         while(!scanner.hasNext("[a-zA-Z]*$")) {
             System.out.println("Вводите только буквы!");
@@ -36,19 +35,39 @@ public class Factory {
         }
         name=scanner.next();
 
-        System.out.println("Введите возраст?");
-        while (!scanner.hasNextInt()) {
-            System.out.println("Вводите только целое число!");
-            scanner.next();
-        }
-        age=scanner.nextInt();
 
-        System.out.println("Введите вес?");
-        while (!scanner.hasNextDouble()) {
-            System.out.println("Вводите только число(разделитель запятая)!");
-            scanner.next();
+        boolean correctAge=false;
+        int tempAge=-1;
+        while (!correctAge){
+            System.out.println("Введите возраст?");
+            if (!scanner.hasNextInt()){
+                System.out.println("Вводите только целое число!");
+                scanner.next();
+            } else {tempAge=scanner.nextInt();
+                if (tempAge<=0){
+                    System.out.println("Возраст должен быть больше 0!");
+                    //scanner.next();
+                } else {  correctAge = true;}
+            }
+
         }
-        weight=scanner.nextDouble();
+        age=tempAge;
+
+        boolean correctWeight=false;
+        double tempWeight =-1;
+        while (!correctWeight){
+            System.out.println("Введите вес?");
+            if (!scanner.hasNextDouble()){
+                System.out.println("Вводите только число(разделитель запятая)!");
+                scanner.next();
+            } else {tempWeight=scanner.nextDouble();
+                if (tempWeight<=0){
+                    System.out.println("Вес должен быть больше 0");
+                } else {correctWeight=true;}
+            }
+            }
+
+        weight=tempWeight;
 
         System.out.println("Введите цвет?");
         while(!scanner.hasNext("[a-zA-Z]*$")) {

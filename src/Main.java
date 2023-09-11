@@ -8,7 +8,7 @@ import animals.data.CommandsData;
 public class Main {
     public static void main(String[] args) {
 
-      String line=null;
+      String line="";
         List<Animal> animals = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
@@ -18,7 +18,7 @@ public class Main {
             String color="";
 
         while (true){
-            System.out.println("Введите команду add/list/exit");
+            System.out.println("Введите команду (add, list, exit)");
             String comIn = scanner.nextLine().toUpperCase().trim();
             boolean isCommandExist = false;
             for (CommandsData commandsData: CommandsData.values()){
@@ -62,6 +62,7 @@ public class Main {
                     break;
                 }
                 case LIST:{
+
                     if (animals.isEmpty()) {
                         System.out.println("Список живоных пуст");
                     } else {
