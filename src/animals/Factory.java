@@ -29,7 +29,7 @@ public class Factory {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите имя?");
-        while(!scanner.hasNext("[a-zA-Z]*$")) {
+        while(!scanner.hasNext("[a-zA-Z]*$")&&!scanner.hasNext("[а-яА-Я]*$")) {
             System.out.println("Вводите только буквы!");
             scanner.next();
         }
@@ -70,7 +70,7 @@ public class Factory {
         weight=tempWeight;
 
         System.out.println("Введите цвет?");
-        while(!scanner.hasNext("[a-zA-Z]*$")) {
+        while(!scanner.hasNext("[a-zA-Z]*$")&&!scanner.hasNext("[а-яА-Я]*$")) {
             System.out.println("Вводите только буквы!");
             scanner.next();
         }
