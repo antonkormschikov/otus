@@ -29,7 +29,7 @@ public class Main {
             }
             if (!isCommandExist){
                 System.out.printf("Комманда %s не найдена",comIn);
-                System.out.println("");
+                System.out.println();
                 continue;
             }
 
@@ -37,29 +37,31 @@ public class Main {
 
             switch (commandsData){
                 case ADD:{
-
-                        System.out.println("Какое живоное добавить? (CAT, DOG,DUCK)");
-                        line = scanner.nextLine().toUpperCase().trim();
-
                         boolean isAnimalExists = false;
-                        for (AnimalData animalData : AnimalData.values()) {
-                            if (animalData.name().equals(line)) {
-                                isAnimalExists = true;
-                                break;
+                        while (!isAnimalExists) {
+                            System.out.println("Какое животное добавить? (CAT, DOG,DUCK)");
+                            line = scanner.nextLine().toUpperCase().trim();
+
+
+                            for (AnimalData animalData : AnimalData.values()) {
+                                if (animalData.name().equals(line)) {
+                                    isAnimalExists = true;
+                                    break;
+                                }
                             }
-                        }
-                        if (!isAnimalExists) {
-                            System.out.printf("Неверный тип живоного %s", line);
-                            System.out.println("");
-                            continue;
-                        }
+                            if (!isAnimalExists) {
+                                System.out.printf("Неверный тип животного %s", line);
+                                System.out.println();
+                                continue;
+                            }
 
-                        AnimalData data = AnimalData.valueOf(line);
-                        Animal a = new Factory(name, age, weight, color).create(data);
-                        animals.add(a);
-                        a.say();
-
+                            AnimalData data = AnimalData.valueOf(line);
+                            Animal a = new Factory(name, age, weight, color).create(data);
+                            animals.add(a);
+                            a.say();
+                        }
                     break;
+
                 }
                 case LIST:{
 
